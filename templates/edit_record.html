@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Record</title>
+</head>
+<body>
+    <h1>Edit Record</h1>
+    <form action="{{ url_for('edit_record', record_id=record['Id']) }}" method="POST">
+        <label for="case_number">Case number:</label><br>
+        <input type="text" id="case_number" name="case_number" value="{{ record['Case_number'] }}"><br><br>
+        
+        <label for="date">Date:</label><br>
+        <input type="date" id="date" name="date" value="{{ record['Date'] }}"><br><br>
+
+        <label for="city">City:</label><br>
+        <input type="text" id="city" name="city" value="{{ record['City'] }}"><br><br>
+        
+        <label for="fine">Fine:</label><br>
+        <input type="text" id="fine" name="fine" value="{{ record['Fine'] }}"><br><br>
+        
+        <button type="submit">Save Changes</button>
+    </form>
+</body>
+</html>

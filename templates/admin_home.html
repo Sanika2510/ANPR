@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        header {
+            background: #333;
+            color: #fff;
+            padding: 3px;
+            text-align: center;
+            width: 100%;
+            height: 70px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+        .head {
+            color: white;
+            margin-top: 10px;
+        }
+        body {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            background-color: #acf4b2;
+            color: #002d72;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding-top: 70px; /* Add padding to avoid content being hidden under the fixed header */
+            padding-bottom: 50px; /* Add padding to avoid content being hidden under the fixed footer */
+        }
+        h1 {
+            color: #333;
+            margin-top: 20px;
+        }
+        .nav-links {
+            margin-bottom: 20px;
+        }
+        .nav-links a {
+            margin-right: 20px;
+            text-decoration: none;
+            color: #007bff;
+            padding: 10px 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .nav-links a:hover {
+            background-color: #007bff;
+            color: #fff;
+        }
+        h2 {
+            color: #333;
+            margin-top: 20px;
+        }
+        .action-buttons {
+            text-decoration: none;
+            color: #fff;
+            background-color: #007bff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        .action-buttons:hover {
+            background-color: #0056b3;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            max-width: 1200px;
+            width: 100%;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .action-buttons-group {
+            display: flex;
+            gap: 10px;
+        }
+        .action-buttons-group a, .action-buttons-group button {
+            text-decoration: none;
+            color: #fff;
+            background-color: #007bff;
+            padding: 5px 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .action-buttons-group a:hover, .action-buttons-group button:hover {
+            background-color: #0056b3;
+        }
+        .delete-button {
+            background-color: #dc3545;
+        }
+        .delete-button:hover {
+            background-color: #c82333;
+        }
+        footer {
+            background: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="head">Vehicle Safety and Compliance System</h1>
+    </header>
+    <br>
+    <h1>Welcome, Admin</h1>
+    <div class="nav-links">
+        <a href="/upload">Upload Image</a>
+    </div>
+
+    <h2>Manage Records</h2>
+    <a href="/view_records" class="action-buttons">View Data</a><br>
+    <a href="/logout" class="action-buttons">Logout</a>
+    <!-- Placeholder for displaying data -->
+    <div id="data-table-container">
+        <!-- Table will be injected here by the server-side script -->
+    </div>
+    
+    <footer>
+        <p>&copy; 2024 Vehicle Safety and Compliance System. All rights reserved.</p>
+    </footer>
+</body>
+</html>

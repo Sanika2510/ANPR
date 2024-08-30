@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Success</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e8f5e9; 
+            color: #333; 
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            background-color: #4caf50; 
+            color: #fff; 
+            padding: 20px;
+            margin: 0;
+            border-radius: 0 0 10px 10px; 
+        }
+
+        p {
+            font-size: 18px;
+            margin: 20px 0;
+            color: #666; 
+        }
+
+        .form-container {
+
+            margin-top: 100px;
+            display: inline-block;
+            background-color: #ffffff; 
+            padding: 20px;
+            border-radius: 8px; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border: 1px solid #d1d1d1; 
+        }
+
+        form {
+            
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50; 
+            color: #fff; 
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #388e3c;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            color: #4caf50; 
+            text-decoration: none;
+            font-size: 16px;
+            border-bottom: 1px solid #4caf50; 
+            padding-bottom: 2px; 
+            transition: border-bottom-color 0.3s ease; 
+        }
+
+        a:hover {
+            border-bottom-color: transparent;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Payment Successful!</h1>
+    <p>Your payment has been successfully processed.</p>
+    
+    <a href="{{ url_for('view_fines') }}">Back to Fines</a>
+    <a href="{{ url_for('user') }}">Back to Dashboard</a>
+</body>
+</html>

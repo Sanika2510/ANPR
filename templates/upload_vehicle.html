@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Vehicle Information</title>
+</head>
+<body>
+    <h1>Upload Vehicle Information</h1>
+    <form action="{{ url_for('user_upload_vehicle') }}" method="post" enctype="multipart/form-data">
+        <label for="case_number">Case Number:</label>
+        <input type="text" id="case_number" name="case_number" required><br><br>
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required><br><br>
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city" required><br><br>
+
+        <input type="submit" value="Upload">
+    </form>
+</body>
+</html>

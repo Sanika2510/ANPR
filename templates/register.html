@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f6; /* Light grayish-green background */
+    color: #333; /* Dark text color for readability */
+}
+
+header {
+    background-color: #4caf50; /* Green background for the header */
+    color: #fff; /* White text color */
+    padding: 20px;
+    text-align: center;
+}
+
+nav {
+    background-color: #fff; /* White background for the navigation */
+    border-bottom: 1px solid #d1d1d1; /* Light gray border for separation */
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav a {
+    color: #4caf50; /* Green color for navigation links */
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 16px;
+}
+
+nav a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 400px); /* Adjust height to fit header and footer */
+    padding: 20px;
+    margin-bottom: 20%;
+}
+
+form {
+    background-color: #ffffff; /* White background for the form */
+    padding: 20px;
+    border-radius: 8px; /* Rounded corners for the form */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    max-width: 400px; /* Maximum width for the form */
+    width: 100%; /* Responsive width */
+    padding: 7%;
+}
+
+input[type="text"],
+input[type="password"],
+select {
+    width: 100%; /* Full width for form elements */
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #d1d1d1; /* Light gray border */
+    border-radius: 4px; /* Rounded corners for inputs and select */
+    background-color: #f9f9f9; /* Light gray background */
+}
+
+button {
+    background-color: #4caf50; /* Green background for the button */
+    color: #fff; /* White text color */
+    border: none;
+    padding: 10px 180px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    /* margin-left: 10%; */
+}
+
+button:hover {
+    background-color: #388e3c; /* Darker green on hover */
+}
+
+footer {
+            background: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+
+</style>
+    
+</head>
+<body>
+    <header>
+        <h1>Register</h1>
+    </header>
+    <nav>
+        <a href="/">Home</a> | 
+        <a href="/login">Login</a> 
+    </nav>
+    <div class="container">
+        <form action="/register" method="POST">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <select name="role">
+                <option value="admin">Admin</option>
+                <option value="std">State Transport Department</option>
+                <option value="user">User</option>
+            </select>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+    <footer>
+        <p>&copy; 2024 Vehicle Safety and Compliance System. All rights reserved.</p>
+    </footer>
+</body>
+</html>

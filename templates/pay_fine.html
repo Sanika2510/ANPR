@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pay Fine</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7f6; /* Light grayish-green background */
+            color: #333; /* Dark text color for readability */
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            background-color: #4caf50; /* Green background for the header */
+            color: #fff; /* White text color */
+            padding: 20px;
+            margin: 0;
+            border-radius: 8px; /* Rounded corners for the header */
+        }
+
+        p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        form {
+            background-color: #ffffff; /* White background for the form */
+            padding: 20px;
+            border-radius: 8px; /* Rounded corners for the form */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            display: inline-block;
+            text-align: left;
+            margin-top: 20px;
+            width: 100%;
+            max-width: 400px; /* Maximum width */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333; /* Dark text color for labels */
+        }
+
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #d1d1d1; /* Light gray border */
+            border-radius: 4px; /* Rounded corners for select */
+            background-color: #f9f9f9; /* Light gray background for select */
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50; /* Green background for the submit button */
+            color: #fff; /* White text color */
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #388e3c; /* Darker green on hover */
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Pay Fine</h1>
+    <p>Case Number: {{ fine['Case_number'] }}</p>
+    <p>Date: {{ fine['Date'] }}</p>
+    <p>City: {{ fine['City'] }}</p>
+    <p>Fine: {{ fine['Fine'] }}</p>
+    <form action="{{ url_for('payment_success') }}" method="post">
+        <input type="hidden" name="case_number" value="{{ fine['Case_number'] }}">
+        <label for="payment_method">Select Payment Method:</label>
+        <select name="payment_method" required>
+            <option value="Credit Card">Credit Card</option>
+            <option value="Debit Card">Debit Card</option>
+            <option value="Net Banking">Net Banking</option>
+        </select><br><br>
+        <input type="submit" value="Pay Now">
+    </form>
+</body>
+</html>

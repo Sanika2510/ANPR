@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4; /* Light gray background */
+            color: #333; /* Dark text color */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+        h1 {
+            color: #4caf50; /* Green color for heading */
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        strong {
+            color: #333; /* Dark color for strong text */
+        }
+        img {
+            max-width: 90%;
+            height: auto;
+            border: 5px solid #4caf50; /* Green border for the image */
+            border-radius: 8px; /* Rounded corners for the image */
+            margin: 20px 0;
+        }
+        a {
+            text-decoration: none;
+            color: #4caf50; /* Green color for links */
+            font-size: 16px;
+            padding: 10px 20px;
+            background-color: #f4f4f4; /* Light gray background for the button */
+            border: 2px solid #4caf50; /* Green border for the button */
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        a:hover {
+            background-color: #4caf50; /* Green background on hover */
+            color: #fff; /* White text color on hover */
+            border-color: #4caf50; /* Maintain green border color on hover */
+        }
+    </style>
+
+</head>
+<body>
+    <h1>The number plate is correct</h1>
+    <p>License Plate Text: <strong>{{ text }}</strong></p>
+    <p>State: <strong>{{ state }}</strong></p>
+    <p>Fine: <strong>{{ fine }}</strong></p>
+    <img src="{{ image_path }}" alt="Processed Image">
+    <br>
+    <a href="{{ url_for('upload_form') }}">Back</a>
+</body>
+</html>

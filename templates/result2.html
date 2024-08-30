@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4; /* Light gray background */
+            color: #333; /* Dark text color */
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .invalid-format {
+            background-color: #fff; /* White background for the block */
+            border: 2px solid #f44336; /* Red border for the block */
+            border-radius: 8px; /* Rounded corners for the block */
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            margin: 20px;
+            max-width: 600px; /* Max width for the block */
+            width: 100%; /* Responsive width */
+        }
+        h1 {
+            color: #f44336; /* Red color for invalid format notice */
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        strong {
+            color: #333; /* Dark color for strong text */
+        }
+        img {
+            width: 500px;
+            height: 500px;
+            border-radius: 8px; /* Rounded corners for the image */
+            margin: 20px 0;
+        }
+        a {
+            text-decoration: none;
+            color: #fff; /* White text color for the link */
+            background-color: #4caf50; /* Green background for the button */
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 20px;
+        }
+        a:hover {
+            background-color: #388e3c; /* Darker green background on hover */
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Invalid format</h1>
+    <p>License Plate Text: <strong>{{ text }}</strong></p>
+    <p>State: <strong>{{ state }}</strong></p>
+    <img src="{{ image_path }}" alt="Processed Image">
+    <br>
+    <a href="{{ url_for('invalid_format') }}">Issue fine</a>
+</body>
+</html>

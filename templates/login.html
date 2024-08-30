@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <style>
+        body {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            background-color: #acf4b2;
+            color: #002d72;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+           
+        }
+        header {
+            background: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .intro {
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+            text-align: center;
+        }
+        .intro h2 {
+            color: #333;
+        }
+        .intro ul {
+            list-style-type: none; /* Removes bullets */
+            margin: 20px 0;
+            padding-left: 0; /* Removes left padding */
+        }
+        .intro li {
+            margin-bottom: 10px;
+            text-align: left; /* Optional: aligns text left */
+        }
+        .main-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            padding: 20px;
+            margin: 0 20px;
+            flex: 1;
+        }
+        .image {
+            flex: 1;
+            max-width: 45%;
+            margin-right: 20px;
+        }
+        .image img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .auth-form {
+            text-align: center;
+            flex: 1;
+            max-width: 45%;
+            background: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .auth-form h2 {
+            color: #333;
+        }
+        .auth-form input[type="text"],
+        .auth-form input[type="password"] {
+            margin-right: 50%;
+            width: 50%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .auth-form button {
+            width: 30%;
+            padding: 10px;
+            background: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .auth-form button:hover {
+            background: #555;
+        }
+        .auth-form a {
+            color: #333;
+            text-decoration: none;
+        }
+        .auth-form a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            background: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Vehicle Safety and Compliance System</h1>
+    </header>
+    <div class="intro">
+        <h2>Enhancing Public Safety Through Technology</h2>
+        <p>Our Vehicle Safety and Compliance System is designed to address significant social problems by leveraging advanced technology to improve public safety and support law enforcement efforts. Our application aids in:</p>
+        <ul>
+            <li><strong>Crime Prevention:</strong> By automating license plate recognition, we help prevent vehicle-related crimes and enhance law enforcement's ability to track stolen or unauthorized vehicles.</li>
+            <li><strong>Traffic Management:</strong> Improve traffic flow and manage traffic violations effectively by analyzing vehicle data and issuing fines as needed.</li>
+            <li><strong>Regulatory Compliance:</strong> Ensure adherence to traffic regulations and vehicle laws, thus reducing violations and promoting safer roads.</li>
+            <li><strong>Public Safety:</strong> Enhance the overall safety of the community by providing timely and accurate information to law enforcement and regulatory bodies.</li>
+        </ul>
+        <p>By integrating state-of-the-art technologies, we are committed to making roads safer and more efficient. Our system supports various functionalities including image upload, license plate recognition, and automated fine issuance.</p>
+    </div>
+    <div class="main-content">
+        <section class="image">
+            <img src="https://media.istockphoto.com/id/1247667822/photo/traffic-jam-with-cars-mopeds-and-auto-rickshaws-in-a-road-in-new-delhi-in-india.jpg?s=612x612&w=0&k=20&c=l73s2l1WyBVp71x9iveOffwt5-U7rox6mamt1tdh6-U=" alt="Vehicle Safety">
+        </section>
+        <section class="auth-form">
+            <h2>Access the System</h2>
+            <p> Please log in or register if you are a new user.</p>
+            <form action="/login" method="POST">
+                <input type="text" name="username" placeholder="Username" required>
+                <input type="password" name="password" placeholder="Password" required>
+                <br>
+                <button type="submit">Login</button>
+            </form>
+            <br><br>
+            <h3>Not registered? </h3>
+            <a href="/register">Register here!</a>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2024 Vehicle Safety and Compliance System. All rights reserved.</p>
+    </footer>
+</body>
+</html>

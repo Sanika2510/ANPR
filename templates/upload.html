@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Image</title>
+    <style>
+        header {
+            background: #333; /* Dark gray background for header */
+            color: #fff; /* White text color */
+            padding: 20px;
+            text-align: center;
+            width: 100%;
+            height: 80px;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0e0e0; /* Light gray background */
+            color: #333; /* Dark text color */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+        }
+        h1 {
+            color: #4caf50; /* Green color for main heading */
+            margin-top: 20px;
+        }
+        form {
+            background: #f9f9f9; /* Very light gray background for the form */
+            width: 50%;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            margin-top: 20px;
+            text-align: left;
+            font-size: 16px;
+        }
+        form input[type="text"],
+        form input[type="file"] {
+            display: block;
+            margin: 10px auto;
+            padding: 12px;
+            border: 1px solid #ccc; /* Light gray border */
+            border-radius: 4px;
+            width: 90%;
+        }
+        form input[type="submit"] {
+            padding: 12px 25px;
+            background-color: #4caf50; /* Green background for submit button */
+            color: #fff; /* White text color */
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        form input[type="submit"]:hover {
+            background-color: #388e3c; /* Darker green on hover */
+        }
+        .back-home {
+            margin-top: 20px;
+            padding: 12px 25px;
+            background-color: #4caf50; /* Green background for back button */
+            color: #fff; /* White text color */
+            text-decoration: none;
+            border-radius: 4px;
+            display: inline-block;
+        }
+        .back-home:hover {
+            background-color: #388e3c; /* Darker green on hover */
+        }
+        footer {
+            background: #333; /* Dark gray background for footer */
+            color: #fff; /* White text color */
+            padding: 15px;
+            text-align: center;
+            width: 100%;
+            position: relative;
+            bottom: 0;
+        }
+        .head {
+            color: #fff; /* White text color for header */
+            margin: 0;
+        }
+        a {
+            text-decoration: none;
+            margin-bottom: 29px;
+        }
+        .error {
+            color: #e53935; /* Red color for error messages */
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        .success {
+            color: #4caf50; /* Green color for success messages */
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        .issue-fine {
+            margin-top: 20px;
+            padding: 12px 25px;
+            background-color: #f44336; /* Red background for issue fine button */
+            color: #fff; /* White text color */
+            text-decoration: none;
+            border-radius: 4px;
+            display: inline-block;
+        }
+        .issue-fine:hover {
+            background-color: #c62828; /* Darker red on hover */
+        }
+    </style>
+
+</head>
+<body>
+    <header>
+        <h1 class="head">Vehicle Safety and Compliance System</h1>
+    </header>
+    <h1>Upload Image</h1>
+    <form action="{{ url_for('upload_image') }}" method="post" enctype="multipart/form-data">
+        Case Number: <input type="text" name="case_number" required  placeholder="Enter applicable case number"><br>
+        Date: <input type="text" name="date" required placeholder="Enter date in yyyy/mm/dd format"><br>
+        City: <input type="text" name="city" required  placeholder="Enter city in which the vehicle was seen"><br>
+        Image: <input type="file" name="file" required><br>
+        <input type="submit" value="Upload" style="justify-content: center;  align-items: center; text-align: center;">
+    </form>
+    {% if error_message %}
+    <p class="error">{{ error_message }}</p>
+    <a href="{{ url_for('invalid_format') }}" class="issue-fine">Issue Fine</a>
+    {% elif success_message %}
+    <p class="success">{{ success_message }}</p>
+    {% endif %}
+    <a href="{{ url_for('admin_home') }}" class="back-home">Back to Home</a>
+    <footer>
+        <p>&copy; 2024 Vehicle Safety and Compliance System. All rights reserved.</p>
+    </footer>
+</body>
+</html>

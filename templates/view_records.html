@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Records</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6; /* Light grayish-green background */
+            color: #333; /* Dark text color for readability */
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #4caf50; /* Green color for headings */
+            margin-top: 20px;
+        }
+
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            background-color: #ffffff; /* White background for the table */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: center;
+            border: 1px solid #ddd; /* Light gray border */
+        }
+
+        th {
+            background-color: #f2f2f2; /* Light gray background for headers */
+            color: #333; /* Dark text color for headers */
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9; /* Light gray background for even rows */
+        }
+
+        tr:hover {
+            background-color: #f1f1f1; /* Light gray background on hover */
+        }
+
+        a {
+            text-decoration: none;
+            color: #4caf50; /* Green color for links */
+            margin: 0 5px;
+        }
+
+        a:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+
+        button {
+            background-color: #e74c3c; /* Red background for buttons */
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 4px; /* Rounded corners for buttons */
+        }
+
+        button:hover {
+            background-color: #c0392b; /* Darker red on hover */
+        }
+        a {
+            text-decoration: none;
+            margin-bottom: 29px;
+        }
+        .back-home {
+            margin-top: 20px;
+            padding: 12px 25px;
+            background-color: #4caf50; /* Green background for back button */
+            color: #fff; /* White text color */
+            text-decoration: none;
+            border-radius: 4px;
+            display: inline-block;
+            margin-left: 45%;
+
+        }
+        .back-home:hover {
+            background-color: #388e3c; /* Darker green on hover */
+        }
+    </style>
+</head>
+<body>
+    <h1>Unpaid Fines</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Case Number</th>
+                <th>Date</th>
+                <th>City</th>
+                <th>Vehicle Number</th>
+                <th>State</th>
+                <th>Fine</th>
+                <th colspan="2">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for record in records %}
+                <tr>
+                    <td>{{ record[0] }}</td>
+                    <td>{{ record[1] }}</td>
+                    <td>{{ record[2] }}</td>
+                    <td>{{ record[3] }}</td>
+                    <td>{{ record[4] }}</td>
+                    <td>{{ record[5] }}</td>
+                    <td>{{ record[6] }}</td>
+                    <td>
+                        <a href="{{ url_for('edit_record', record_id=record[0]) }}">Edit</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h1>Paid Fines</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Case Number</th>
+                <th>Fine</th>
+                <th>Date Paid</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for paid_fine in paid_fines %}
+                <tr>
+                    <td>{{ paid_fine[0] }}</td>
+                    <td>{{ paid_fine[1] }}</td>
+                    <td>{{ paid_fine[2] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ url_for('admin_home') }}" class="back-home">Back to Home</a>
+
+</body>
+</html>

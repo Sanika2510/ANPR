@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Fines</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6; /* Light grayish-green background */
+            color: #333; /* Dark text color for readability */
+            text-align: center;
+        }
+
+        h1 {
+            background-color: #4caf50; /* Green background for the header */
+            color: #fff; /* White text color */
+            padding: 20px;
+            margin: 0;
+        }
+
+        form {
+            background-color: #ffffff; /* White background for the form */
+            padding: 20px;
+            border-radius: 8px; /* Rounded corners for the form */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            display: inline-block;
+            text-align: left;
+            margin: 20px auto; /* Center the form horizontally */
+            width: 20%; /* Responsive width */
+            max-width: 400px; /* Maximum width */
+            padding-right: 38px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            color: #333; /* Dark text color for labels */
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #d1d1d1; /* Light gray border */
+            border-radius: 4px; /* Rounded corners for input */
+            background-color: #f9f9f9; /* Light gray background for input */
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50; /* Green background for the submit button */
+            color: #fff; /* White text color */
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #388e3c; /* Darker green on hover */
+        }
+
+        h2 {
+            color: #4caf50; /* Green color for subheadings */
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        li {
+            background-color: #ffffff; /* White background for list items */
+            padding: 15px;
+            margin-bottom: 10px;
+            border: 1px solid #d1d1d1; /* Light gray border */
+            border-radius: 4px; /* Rounded corners for list items */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            text-align: left;
+            width: 30%;
+            margin-left: 34%;
+        }
+
+        p {
+            margin: 5px 0;
+        }
+
+        a {
+            color: #4caf50; /* Green color for links */
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        a:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+    </style>
+
+</head>
+<body>
+    <h1>View Fines</h1>
+    
+    <form action="{{ url_for('view_fines') }}" method="post">
+        <label for="vehicle_number">Enter Vehicle Number:</label>
+        <input type="text" name="vehicle_number" required><br><br>
+        <input type="submit" value="View Fines">
+    </form>
+    
+    {% if fines %}
+    <h2>Fines for Vehicle: {{ vehicle_number }}</h2>
+    <ul>
+        {% for fine in fines %}
+        <li>
+            <p>Case Number: {{ fine['Case_number'] }}</p>
+            <p>Date: {{ fine['Date'] }}</p>
+            <p>City: {{ fine['City'] }}</p>
+            <p>Fine: {{ fine['Fine'] }}</p>
+            
+            {% if fine['Fine'] != 'Paid' %}
+            <form action="{{ url_for('pay_fine') }}" method="post" target="_blank">
+                <input type="hidden" name="case_number" value="{{ fine['Case_number'] }}">
+                <input type="hidden" name="payment_method" value="credit_card"> <!-- or other payment method -->
+                <input type="submit" value="Pay Fine">
+            </form>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No fines found for this vehicle number.</p>
+    {% endif %}
+    
+    <a href="{{ url_for('user') }}">Back to Dashboard</a>
+</body>
+</html>
